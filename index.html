@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Interactive card details form</title>
+
+</head>
+<body>
+  <main>
+    
+    
+      <section class="cards">
+        
+        <div class="card cardFront">
+          <img src="images/bg-card-front.png" alt="Card front background">
+          <div class="cardFrontInfo">
+            <span id="cardNumber">0000 0000 0000 0000 </span>
+            <span id="cardName">Jane Appleseed</span>
+            <div class="expiryDates">
+              <span id="expiryDateMonth">00/</span>
+              <span id="expiryDateYear">00</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="card cardBack">
+          <img src="images/bg-card-back.png" alt="Card back background">
+          <span id="cvcNumber"></span>
+        </div>
+      </section>
+      <section class="card-input">
+        <form action="">
+          <label for="cName">Cardholder Name</label>
+          <input type="text" id="cName" name="cName" placeholder="e.g. Jane Appleseed" required/>
+          <p class="error nameError">Can't be blank</p>
+      
+          <label for="cNumber">Card Number</label>
+          <input type="tel" id="cNumber" name="cNumber" maxlength="16" pattern="[0-9]{16}" placeholder="e.g. 1234 5678 9123 0000" required/>
+          <p class="error numberErrorFormat">Wrong format, numbers only</p>
+          <p class="error numberErrorBlank">Can't be blank</p>
+      
+          <fieldset>
+            <legend>Exp. date (MM/YY)</legend>
+            <label for="expMonth">Exp. date (MM/YY)</label>
+            <select id="expMonth" onchange="monthText()" name="expMonth" required>
+              <option value="" disabled selected>MM</option>
+              <option value="01">01</option>
+              <option value="02">02</option>
+              <option value="03">03</option>
+              <option value="04">04</option>
+              <option value="05">05</option>
+              <option value="06">06</option>
+              <option value="07">07</option>
+              <option value="08">08</option>
+              <option value="09">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+            <label for="expYear">Exp. date (MM/YY)</label>
+            <select id="expYear" onchange="yearText()" name="expYear" required>
+              <option value="" disabled selected>YY</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+            </select>
+            <div class="expErrors">
+              <p class="error monthError">Can't be blank</p>
+              <p class="error yearError">Can't be blank</p>
+            </div>
+          </fieldset>
+      
+          <label for="cvc">CVC</label>
+          <input type="tel" id="cvc" name="cvc" maxlength="3" placeholder="e.g. 123" />
+          <p class="error cvcError">Can't be blank</p>
+      
+          <input type="submit" value="Confirm">
+        </form>
+      </section>
+      <section class="thankYou">
+        <img src="./images/icon-complete.svg" alt="Completed">
+        <h2>Thank you!</h2>
+        <p>We've added your card details</p>
+        <button type="button">Continue</button>
+      </section>
+      <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://github.com/Shughes4246">Shauna Hughes</a>.
+      </div>
+  </main>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>

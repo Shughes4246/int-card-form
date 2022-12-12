@@ -1,0 +1,230 @@
+body {
+    /* variables */
+    --white: hsl(0, 0%, 100%);
+    --light-gray-violet: hsl(270, 3%, 87%);
+    --dark-grayish-violet: hsl(279, 6%, 55%);
+    --dark-violet: hsl(278, 68%, 11%);
+    --red: hsl(0, 100%, 66%);
+
+    margin: 0;
+    font-family: "space grotesk", sans-serif;
+    font-size: 18px;
+    overflow-x: hidden;
+}
+
+main {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+    background: url("images/bg-main-mobile.png") no-repeat;
+    background-size: 100% 30%;
+}
+
+picture.bgImg img  {
+    width: 100%;
+}
+
+section.content {
+    display: flex;
+    z-index: 100;
+}
+
+section.cards {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    max-width: 275px;
+    height: auto;
+    position: relative;
+}
+
+.card > img {
+    width: 100%;
+}
+
+.cardFront {
+    margin: 0;
+    translate: 0 125px;
+    z-index: 1;
+}
+
+.cardBack {
+    margin: 0 0 0 30px;
+    translate: 0 -118px;
+}
+
+.cardFrontInfo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: var(--white);
+    width: calc(100% - 50px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 25px 25px;
+    font-size: 12px;
+}
+
+#cardNumber {
+    grid-column: 1 / span 2;
+    margin: 0 0 10px;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+#cardName {
+    text-transform: uppercase;
+}
+
+.expiryDates {
+    justify-self: end;
+}
+
+#cvcNumber {
+    position: absolute;
+    color: var(--white);
+    top: 108px;
+    right: 53px;
+}
+
+section.card-input {
+    width: 100%;
+}
+
+section.card-input form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+section.card-input form label, section.card-input form legend {
+    text-transform: uppercase;
+    margin: 0 0 12px;
+}
+
+section.card-input form input, section.card-input form select {
+    border: 1px solid var(--light-gray-violet);
+    outline: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 0 0 12px;
+}
+
+section.card-input form input:focus-visible, section.card-input form select:focus {
+    border: 1px solid transparent;
+    background: linear-gradient(to right, white, white), linear-gradient(to left, hsl(278, 94%, 30%) , hsl(249, 99%, 64%));
+    background-clip: padding-box, border-box;
+}
+
+section.card-input form fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+section.card-input form fieldset label {
+    display: none;
+}
+
+section.card-input form input[type=submit] {
+    background-color: var(--dark-violet);
+    color: var(--white);
+}
+
+section.card-input form p.error {
+    display: none;
+    color: var(--red);
+    margin: 0 10px 5px 0;
+}
+
+section.card-input form p.error.show {
+    display: inline-block;
+}
+
+section.thankYou {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+section.thankYou h2 {
+    text-transform: uppercase;
+}
+
+section.thankYou h2 {
+    text-transform: uppercase;
+}
+
+section.thankYou p {
+    color: var(--dark-grayish-violet);
+}
+
+section.thankYou button {
+    background-color: var(--dark-violet);
+    color: var(--white);
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.attribution {
+    margin: 0 0 20px;
+    padding: 0 20px;
+}
+
+.attribution a {
+    color: var(--red);
+}
+
+@media only screen and (min-width: 1024px) {
+    main {
+        grid-template-columns: 1fr 1fr;
+        background: url("images/bg-main-desktop.png") no-repeat;
+        background-size: 30% 100%;
+        height: 100vh;
+    }
+
+    section.cards {
+        flex-direction: column;
+    }
+
+    .card {
+        max-width: 447px;
+    }
+
+    .cardFront {
+        translate: 0;
+        margin: 0 0 50px;
+        z-index: 0;
+    }
+
+    .cardBack {
+        translate: 0;
+        margin: 0 0 0 100px;
+    }
+
+    section.card-input form {
+        display: flex;
+        padding: 0 100px;
+    }
+
+    .cardFrontInfo {
+        font-size: 18px;
+    }
+
+    #cardNumber {
+        margin: 0 0 25px;
+        font-size: 26px;
+        letter-spacing: 4px;
+    }
+    
+    .attribution {
+        grid-column-start: 2;
+        margin: 0;
+        padding: 0;
+    }
+}
